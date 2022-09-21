@@ -25,13 +25,26 @@ function App() {
 
   const [words] = useState(wordsList);
 
-  console.log(words);
+  // method of play game
+  const startGame = () => {
+    setGameStage(stages[1].name);
+  }
+
+  // method process each letter
+  const verifyLetter = () => {
+    setGameStage(stages[2].name);
+  }
+
+  // restart the game
+  const retry = () => {
+    setGameStage(stages[0].name);
+  }
 
   return (
     <>
-    {gameStage === 'start' && <Loading />}
-    {gameStage === 'game' && <Game />}
-    {gameStage === 'end' && <GameOver />}
+    {gameStage === 'start' && <Loading startGame={startGame} />}
+    {gameStage === 'game' && <Game verifyLetter={verifyLetter} />}
+    {gameStage === 'end' && <GameOver retry={retry} />}
     </>
   );
 }
