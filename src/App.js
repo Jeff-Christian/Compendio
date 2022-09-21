@@ -1,10 +1,11 @@
 
 import './App.css';
+import Loading from './components/loading';
 
 function App() {
   return (
     <>
-    <h1>Compendio Page</h1>
+    <Loading />
     </>
   );
 }
