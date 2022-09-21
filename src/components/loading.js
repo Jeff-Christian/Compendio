@@ -1,4 +1,5 @@
-import LoadingLogo from "../img/compendio-loading.svg"
+import LoadingLogo from "../img/compendio-loading.svg";
+import "./Loading.css";
 
 const Loading = () => {
     return(
