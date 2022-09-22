@@ -8,13 +8,26 @@ import { faLightbulb, faQuestion } from '@fortawesome/free-solid-svg-icons';
 import { faGift } from '@fortawesome/free-solid-svg-icons';
 
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const Game = ({verifyLetter, pickedWord, pickedCategory, letters, guessedLetters, wrongLetters, guesses, score}) => {
 
   const [showTip, setShowTip] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
   const [showScore, setShowScore] = useState(false);
+
+  const [letter, setLetter] = useState('');
+  const letterInputRef = useRef(null);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    verifyLetter(letter);
+
+    setLetter('');
+
+    letterInputRef.current.focus();
+  }
 
   return (
     <>
@@ -73,10 +86,18 @@ const Game = ({verifyLetter, pickedWord, pickedCategory, letters, guessedLetters
       ))}
     </div>
 
-    <div>
-      <input type="text" maxLength={1} placeholder="Digite uma letra" />
+    <form onSubmit={handleSubmit}>
+      <input 
+      type="text" 
+      maxLength='1' 
+      required 
+      placeholder="Digite uma letra" 
+      value={letter}
+      ref={letterInputRef}
+      onChange={(e) => setLetter(e.target.value)}
+      />
       <button>Enter</button>
-    </div>
+    </form>
 
     </>
   )
