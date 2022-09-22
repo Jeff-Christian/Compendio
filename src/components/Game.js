@@ -10,7 +10,7 @@ import { faGift } from '@fortawesome/free-solid-svg-icons';
 
 import { useState } from "react";
 
-const Game = ({verifyLetter}) => {
+const Game = ({verifyLetter, pickedWord, pickedCategory, letters, guessedLetters, wrongLetters, guesses, score}) => {
 
   const [showTip, setShowTip] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
@@ -29,8 +29,8 @@ const Game = ({verifyLetter}) => {
 
     {showTip &&  
       <div id="box-tip">
-        <p>Sua Palavra Se refere A: </p>
-        <p>Dica...</p>
+        <p>Sua palavra se refere A: </p>
+        <span>{pickedCategory}</span>
       </div>
     }
 
@@ -47,26 +47,36 @@ const Game = ({verifyLetter}) => {
 
     {showScore &&  
       <div id="box-score">
-        <p>Pontuação...</p>
+        <p>Sua pontuação:</p>
+        <span>{score}</span>
       </div>
     }
 
-    <p>Restam xxx tentativas</p>
+    <p>Restam {guesses} tentativas</p>
 
     <div className="words">
-      as palavras ficam aqui...
+      {letters.map((letter, i) =>
+        guessedLetters.includes(letter) ? (
+          <span key={i} className="letter">
+            {letter}
+          </span>
+        ) : (
+          <span key={i} className="blankSquare"></span>
+        )
+      )}
     </div>
 
     <div className="lastWords">
-      <p>Letras já utilizadas...</p>
-      <span>a, b, c...</span>
+      <p>Suas últimas tentativas:</p>
+      {wrongLetters.map((letter, i) => (
+        <span key={i}>{letter},</span>
+      ))}
     </div>
 
     <div>
       <input type="text" maxLength={1} placeholder="Digite uma letra" />
       <button>Enter</button>
     </div>
-
 
     </>
   )
