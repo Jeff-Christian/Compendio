@@ -53,7 +53,7 @@ const Game = ({verifyLetter, pickedWord, pickedCategory, letters, guessedLetters
           Descubra a palavra certa em até 6 tentativas. Depois de cada letra chutada, as peças revelam o quão perto você está de acertar.
         </p>
         <img src={CompendioWord} alt="Palavra sendo Completada" />
-        <p>Os acentos são preenchidos automaticamente, e não são considerados nas dicas</p>
+        <p>Os acentos não são preenchidos automaticamente, e são considerados obrigatórios.</p>
         <p>As palavras podem possuir letras repetidas.</p>
       </div>
     }

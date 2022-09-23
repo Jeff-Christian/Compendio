@@ -8,7 +8,7 @@ import GameOver from './components/GameOver';
 import "./App.css";
 
 // Hooks, React
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 // Data
 import { wordsList } from "./data/words";
@@ -35,7 +35,7 @@ function App() {
   const [score, setScore] = useState(0);
 
 
-  const pickWordandCategory = () => {
+  const pickWordandCategory = useCallback(() => {
     // pick a random category
     const categories = Object.keys(words);
     const category = categories[
@@ -49,10 +49,14 @@ function App() {
 
     return {category, word};
 
-  }
+  }, [words]);
 
   // method of play game
-  const startGame = () => {
+  const startGame = useCallback(() => {
+
+    // clear all letters
+    clearLetterStates();
+
   
     // pick word and category
     const {category, word} = pickWordandCategory();
@@ -62,16 +66,13 @@ function App() {
 
     wordLetters = wordLetters.map((l) => l.toLowerCase());
 
-    console.log(category, word);
-    console.log(wordLetters);
-
     // fill states
     setPickedWord(word);
     setPickedCategory(category);
     setLetters(wordLetters);
 
     setGameStage(stages[1].name);
-  }
+  }, [pickWordandCategory]);
 
   // method process each letter
   const verifyLetter = (letter) => {
@@ -107,6 +108,7 @@ function App() {
     setWrongLetters([]);
   }
 
+  // Check if guesses ended
   useEffect(() => {
 
     if (guesses <= 0) {
@@ -116,7 +118,26 @@ function App() {
       setGameStage(stages[2].name);
     }
 
-  }, [guesses])
+  }, [guesses]);
+
+  // check win condition
+  useEffect(() => {
+
+    // check if has repeat letters
+    const uniqueLetters = [...new Set(letters)];
+
+    // win condition
+    if (guessedLetters.length === uniqueLetters.length) {
+      
+      // add score
+      setScore((actualScore) => actualScore += 100);
+
+      // restart game with new word
+      startGame();
+
+    }
+
+  }, [guessedLetters, letters, startGame]);
 
   // restart the game
   const retry = () => {
