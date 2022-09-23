@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Compendio/static/css/main.3f2a58e0.css",
+    "main.js": "/Compendio/static/js/main.87cd5d6b.js",
+    "static/js/787.bcfd7bfb.chunk.js": "/Compendio/static/js/787.bcfd7bfb.chunk.js",
+    "static/media/compendio-logo.png": "/Compendio/static/media/compendio-logo.c1241d129fad4a4b75d8.png",
+    "static/media/compendio-loading.svg": "/Compendio/static/media/compendio-loading.73a5d70e460738f78b0407c42cecf7ec.svg",
+    "index.html": "/Compendio/index.html",
+    "main.3f2a58e0.css.map": "/Compendio/static/css/main.3f2a58e0.css.map",
+    "main.87cd5d6b.js.map": "/Compendio/static/js/main.87cd5d6b.js.map",
+    "787.bcfd7bfb.chunk.js.map": "/Compendio/static/js/787.bcfd7bfb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3f2a58e0.css",
+    "static/js/main.87cd5d6b.js"
+  ]
+}
