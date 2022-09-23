@@ -2,6 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+This project was inspired by Termo, teaching project of the React course from Zero to Mastery.
+
+![compendio-words](https://user-images.githubusercontent.com/99052195/192034237-10e2f56e-66ff-4321-ae05-ba1ed54a0594.png)
+![guesses-logo](https://user-images.githubusercontent.com/99052195/192034239-89b594b6-fc6f-45fb-b423-bec8303f7dfc.png)
+![thumbnail](https://user-images.githubusercontent.com/99052195/192034240-f6d408af-230f-43e4-997e-ee14fca673fe.png)
+![wireframe-landing-page](https://user-images.githubusercontent.com/99052195/192034243-124c2018-623c-4801-9052-b7e71dfe15ce.png)
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -68,3 +75,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
