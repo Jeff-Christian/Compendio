@@ -8,7 +8,7 @@ import GameOver from './components/GameOver';
 import "./App.css";
 
 // Hooks, React
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 // Data
 import { wordsList } from "./data/words";
@@ -128,7 +128,11 @@ function App() {
 
   return (
     <>
-    {gameStage === 'start' && <Loading startGame={startGame} />}
+    {gameStage === 'start' && 
+    <Loading 
+    startGame={startGame} 
+    />}
+
     {gameStage === 'game' && (
     <Game 
     verifyLetter={verifyLetter} 
@@ -141,7 +145,12 @@ function App() {
     score={score}
     />
     )}
-    {gameStage === 'end' && <GameOver retry={retry} />}
+
+    {gameStage === 'end' && 
+    <GameOver 
+    retry={retry} 
+    score={score}
+    />}
     </>
   );
 }
